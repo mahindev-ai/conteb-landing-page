@@ -1,0 +1,75 @@
+<style>
+  /* Estilos para los círculos */
+  .circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    filter: blur(20px); /* Aplicamos un efecto de desenfoque */
+    transition: all 1s ease-in-out; /* Transición suave */
+  }
+</style>
+
+<div class="relative overflow-hidden">
+  <!-- Contenedor del contenido principal -->
+  <div
+    class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 text-center relative z-10"
+  >
+    <h1
+      class="font-title text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+    >
+      Data to enrich your online business
+    </h1>
+    <p class="mt-6 text-lg leading-8 text-gray-600">
+      Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
+      cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+    </p>
+    <div class="mt-10 flex items-center justify-center gap-x-6">
+      <a
+        href="#"
+        class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
+        >Get started</a
+      >
+      <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
+        >Learn more <span aria-hidden="true">→</span></a
+      >
+    </div>
+  </div>
+
+  <!-- Círculos animados -->
+  <div
+    id="circle-container"
+    class="absolute inset-0 flex items-center justify-center"
+  >
+    <!-- Círculo 1 -->
+    <div id="circle1" class="circle" style="top: 20%; left: 20%;"></div>
+
+    <!-- Círculo 2 -->
+    <div id="circle2" class="circle" style="top: 50%; left: 60%;"></div>
+  </div>
+</div>
+
+<script>
+  // Función para mover los círculos aleatoriamente
+  function moveCircles() {
+    const circle1 = document.querySelector("#circle1") as HTMLElement;
+    const circle2 = document.querySelector("#circle2") as HTMLElement;
+
+    if (circle1 && circle2) {
+      const maxX = window.innerWidth - 50; // Ancho máximo de la ventana - ancho del círculo
+      const maxY = window.innerHeight - 50; // Alto máximo de la ventana - alto del círculo
+
+      // Mueve el círculo 1
+      circle1.style.top = `${Math.random() * maxY}px`;
+      circle1.style.left = `${Math.random() * maxX}px`;
+
+      // Mueve el círculo 2
+      circle2.style.top = `${Math.random() * maxY}px`;
+      circle2.style.left = `${Math.random() * maxX}px`;
+    }
+  }
+
+  // Llama a la función para mover los círculos cada segundo
+  setInterval(moveCircles, 1000);
+</script>
